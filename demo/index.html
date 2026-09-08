@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IT Intelligence Dashboard – Vorführung</title>
+    <link rel="stylesheet" href="css/style.css?v=6">
+</head>
+<body>
+
+<div class="vorfuehrung">
+    Vorführung mit aufgezeichneten Daten &middot; schreibende Aktionen sind
+    deaktiviert &middot; <a href="https://github.com/USERNAME/it-informationsplattform">Quellcode auf GitHub</a>
+</div>
+
+<header class="kopf">
+    <div>
+        <p class="kopf__rubrik">
+            <span id="verbindung" class="punkt" title="Verbindung zum Server"></span>
+            Sicherheits- &amp; Update-Monitoring
+        </p>
+        <h1 class="kopf__titel">IT Intelligence Dashboard</h1>
+        <p class="kopf__unterzeile">Updates &middot; Security &middot; Schwellwerte &middot; Trends</p>
+        <p class="kopf__stand">Stand: <span id="stand">&ndash;</span></p>
+    </div>
+
+    <div class="kopf__bedienung">
+        <span class="kopf__benutzer" id="benutzer"></span>
+        <button class="schalter schalter--aktion" id="aktualisieren" type="button">
+            Jetzt aktualisieren
+        </button>
+    </div>
+</header>
+
+<nav class="reiter" role="tablist" aria-label="Bereiche">
+    <button class="reiter__knopf reiter__knopf--aktiv" role="tab" data-bereich="uebersicht">Übersicht</button>
+    <button class="reiter__knopf" role="tab" data-bereich="produkte">Produkte</button>
+    <button class="reiter__knopf" role="tab" data-bereich="meldungen">Meldungen</button>
+    <button class="reiter__knopf" role="tab" data-bereich="quellen">Quellen</button>
+    <button class="reiter__knopf" role="tab" data-bereich="regeln">Regeln</button>
+    <button class="reiter__knopf" role="tab" data-bereich="berichte">Berichte</button>
+</nav>
+
+<div class="bereich" id="bereich-uebersicht">
+
+<section class="kennzahlen" id="kennzahlen" aria-label="Kennzahlen"></section>
+
+<section class="raster raster--oben">
+
+    <article class="tafel">
+        <h2 class="tafel__titel">Dringender Handlungsbedarf</h2>
+        <div class="tafel__inhalt">
+            <table class="liste">
+                <thead>
+                    <tr>
+                        <th>Bereich</th>
+                        <th>Meldung</th>
+                        <th>Kategorie</th>
+                        <th>Relevanz</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody id="meldungen">
+                    <tr><td colspan="5" class="platzhalter">Lade Meldungen &hellip;</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </article>
+
+    <article class="tafel">
+        <h2 class="tafel__titel">Trendanalyse</h2>
+        <p class="tafel__hinweis">Erfasste Meldungen je Kalenderwoche</p>
+        <div class="tafel__inhalt" id="trend"></div>
+    </article>
+
+    <article class="tafel">
+        <h2 class="tafel__titel">Systemrisiko / Relevanz</h2>
+        <div class="tafel__inhalt" id="risiko"></div>
+    </article>
+
+</section>
+
+<section class="raster raster--unten">
+
+    <article class="tafel">
+        <h2 class="tafel__titel">Offene Meldungen nach Themenbereich</h2>
+        <div class="tafel__inhalt" id="nachSystem"></div>
+    </article>
+
+    <article class="tafel">
+        <h2 class="tafel__titel">Meldungen nach Kategorie</h2>
+        <div class="tafel__inhalt tafel__inhalt--mittig" id="nachKategorie"></div>
+    </article>
+
+    <article class="tafel">
+        <h2 class="tafel__titel">Versionsstand</h2>
+        <div class="tafel__inhalt" id="systeme"></div>
+    </article>
+
+</section>
+
+</div><!-- Ende Übersicht -->
+
+<!-- ---------------------------------------------------------------- -->
+<div class="bereich" id="bereich-produkte" hidden>
+    <article class="tafel">
+        <h2 class="tafel__titel">Überwachte Produkte und Herkunft der Versionsangabe</h2>
+        <p class="tafel__hinweis">
+            Die Spalte „Quelle" zeigt, woher der Versionsstand stammt. Über den
+            Verweis lässt sich die Angabe beim Hersteller nachvollziehen.
+        </p>
+        <div class="tafel__inhalt" id="produkte"></div>
+    </article>
+</div>
+
+<!-- ---------------------------------------------------------------- -->
+<div class="bereich" id="bereich-meldungen" hidden>
+    <article class="tafel">
+        <h2 class="tafel__titel">Alle Meldungen</h2>
+        <p class="tafel__hinweis">
+            Automatisch erfasste Hersteller-, Update- und Sicherheitsmeldungen.
+            Die Einstufung erfolgt nach CVSS, sofern der Anbieter eine
+            Bewertung mitliefert, sonst anhand von Kategorie und Inhalt.
+        </p>
+        <div class="werkzeugleiste">
+            <label class="werkzeugleiste__feld">
+                <span>Bereich</span>
+                <select id="filterBereich" class="auswahl">
+                    <option value="">alle</option>
+                </select>
+            </label>
+            <label class="werkzeugleiste__feld">
+                <span>Kategorie</span>
+                <select id="filterKategorie" class="auswahl">
+                    <option value="">alle</option>
+                    <option value="cve">CVE</option>
+                    <option value="sicherheitswarnung">Sicherheitswarnung</option>
+                    <option value="update">Update</option>
+                    <option value="eol">Supportende</option>
+                    <option value="produktinformation">Produktinformation</option>
+                </select>
+            </label>
+            <label class="werkzeugleiste__feld">
+                <span>Relevanz</span>
+                <select id="filterRelevanz" class="auswahl">
+                    <option value="">alle</option>
+                    <option value="kritisch">kritisch</option>
+                    <option value="hoch">hoch</option>
+                    <option value="mittel">mittel</option>
+                    <option value="info">info</option>
+                </select>
+            </label>
+            <label class="werkzeugleiste__feld">
+                <input type="checkbox" id="filterUngelesen" checked>
+                <span>nur unbearbeitet</span>
+            </label>
+            <label class="werkzeugleiste__feld">
+                <span>Suche</span>
+                <input type="search" id="filterSuche" class="auswahl" placeholder="Titel oder Text">
+            </label>
+        </div>
+        <div class="tafel__inhalt" id="alleMeldungen"></div>
+    </article>
+</div>
+
+<!-- ---------------------------------------------------------------- -->
+<div class="bereich" id="bereich-quellen" hidden>
+    <article class="tafel">
+        <h2 class="tafel__titel">Zustand der Informationsquellen</h2>
+        <p class="tafel__hinweis">
+            Eine Quelle gilt als gestört, sobald drei Abfragen in Folge
+            fehlschlagen, und als veraltet, wenn seit dem letzten Erfolg mehr
+            als das Dreifache des Prüfintervalls vergangen ist. Eine nicht
+            erreichbare Quelle erzeugt bewusst keine Meldung.
+        </p>
+        <div class="tafel__inhalt" id="quellen"></div>
+    </article>
+
+    <article class="tafel" style="margin-top:12px">
+        <h2 class="tafel__titel">Protokoll der Abfragen</h2>
+        <div class="werkzeugleiste">
+            <label class="werkzeugleiste__feld">
+                <input type="checkbox" id="filterNurFehler" checked>
+                <span>nur fehlgeschlagene</span>
+            </label>
+        </div>
+        <div class="tafel__inhalt" id="quellenprotokoll"></div>
+    </article>
+</div>
+
+<!-- ---------------------------------------------------------------- -->
+<div class="bereich" id="bereich-regeln" hidden>
+    <article class="tafel">
+        <h2 class="tafel__titel">Schwellwerte</h2>
+        <p class="tafel__hinweis">
+            Eine Obergrenze löst bei Überschreitung aus, eine Untergrenze bei
+            Unterschreitung. Die Bewertung erfolgt in der Datenbanksicht
+            <code>v_metrikstatus</code>.
+        </p>
+        <div class="tafel__inhalt" id="regeln"></div>
+    </article>
+</div>
+
+<!-- ---------------------------------------------------------------- -->
+<div class="bereich" id="bereich-berichte" hidden>
+    <article class="tafel">
+        <h2 class="tafel__titel">Bericht zum Betriebszustand</h2>
+        <div class="werkzeugleiste">
+            <button class="schalter schalter--rand" id="berichtDrucken" type="button">Drucken</button>
+        </div>
+        <div class="tafel__inhalt" id="bericht"></div>
+    </article>
+</div>
+
+<footer class="fuss">
+    <span>Abschlussprojekt Fachinformatiker Systemintegration</span>
+    <span id="auftraege"></span>
+</footer>
+
+<div class="hinweisbox" id="hinweisbox" role="status" hidden></div>
+
+<script src="js/api.js?v=6"></script>
+<script src="js/diagramme.js?v=6"></script>
+<script src="js/bereiche.js?v=6"></script>
+<script src="js/app.js?v=6"></script>
+</body>
+</html>

@@ -1,0 +1,87 @@
+erDiagram
+    SYSTEM_KATEGORIEN ||--o{ SYSTEME : "klassifiziert"
+    SYSTEME ||--o{ VERSIONSPRUEFUNGEN : "wird geprueft in"
+    SYSTEME ||--o{ METRIKEN : "besitzt"
+    SYSTEME ||--o{ ALARME : "erzeugt"
+    METRIKEN ||--o{ MESSWERTE : "hat"
+    METRIKEN ||--o| SCHWELLWERTE : "wird bewertet mit"
+    METRIKEN ||--o{ ALARME : "ausloest"
+    BENUTZER ||--o{ ALARME : "quittiert"
+
+    SYSTEM_KATEGORIEN {
+        tinyint kategorie_id PK
+        varchar bezeichnung UK
+    }
+
+    SYSTEME {
+        int system_id PK
+        varchar name UK
+        varchar hersteller
+        tinyint kategorie_id FK
+        varchar hostname
+        varchar ip_adresse
+        varchar standort
+        varchar installierte_version
+        enum quelle_typ
+        varchar quelle_kennung
+        smallint pruefintervall_min
+        boolean aktiv
+    }
+
+    VERSIONSPRUEFUNGEN {
+        bigint pruefung_id PK
+        int system_id FK
+        varchar verfuegbare_version
+        date veroeffentlicht_am
+        boolean ist_sicherheitsupdate
+        varchar changelog_url
+        datetime geprueft_am
+    }
+
+    METRIKEN {
+        int metrik_id PK
+        int system_id FK
+        varchar bezeichnung
+        varchar einheit
+        varchar beschreibung
+        boolean aktiv
+    }
+
+    MESSWERTE {
+        bigint messwert_id PK
+        int metrik_id FK
+        decimal wert
+        datetime gemessen_am
+    }
+
+    SCHWELLWERTE {
+        int schwellwert_id PK
+        int metrik_id FK,UK
+        enum richtung
+        decimal grenze_warnung
+        decimal grenze_kritisch
+        boolean aktiv
+    }
+
+    ALARME {
+        bigint alarm_id PK
+        int system_id FK
+        int metrik_id FK
+        enum typ
+        enum stufe
+        varchar meldung
+        decimal messwert
+        datetime ausgeloest_am
+        datetime quittiert_am
+        int quittiert_von FK
+    }
+
+    BENUTZER {
+        int benutzer_id PK
+        varchar benutzername UK
+        char passwort_hash
+        varchar email UK
+        enum rolle
+        boolean aktiv
+        datetime letzter_login
+    }

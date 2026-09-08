@@ -1,0 +1,365 @@
+{
+    "kennzahlen": {
+        "meldungen_gesamt": 25,
+        "meldungen_ungelesen": 24,
+        "meldungen_neu_24h": 25,
+        "meldungen_handlungsbedarf": 14,
+        "meldungen_kritisch": 1,
+        "meldungen_kritisch_24h": 1,
+        "quellen_erreichbar": 15,
+        "quellen_gestoert": 1,
+        "quellen_gesamt": 16,
+        "meldungen_offen": 2,
+        "meldungen_offen_24h": 2,
+        "systeme_gesamt": 11,
+        "systeme_neu": 11,
+        "letzter_lauf": "2026-09-07 07:10:31"
+    },
+    "dringende_meldungen": [
+        {
+            "meldung_id": 19,
+            "titel": "CVE-2026-2222: VMware ESXi remote code execution",
+            "kategorie": "cve",
+            "relevanz": "kritisch",
+            "cvss": 9.8,
+            "bereich": "Virtualisierung",
+            "system_name": "VMware ESXi",
+            "quelle": "NVD \u2013 3CX",
+            "verweis": "https://nvd/2222",
+            "veroeffentlicht_am": "2026-09-04 00:00:00",
+            "gelesen_am": null
+        },
+        {
+            "meldung_id": 16,
+            "titel": "CVE-2026-2222: VMware ESXi remote code execution",
+            "kategorie": "cve",
+            "relevanz": "kritisch",
+            "cvss": 9.8,
+            "bereich": "Virtualisierung",
+            "system_name": "VMware ESXi",
+            "quelle": "NVD \u2013 Nextcloud",
+            "verweis": "https://nvd/2222",
+            "veroeffentlicht_am": "2026-09-04 00:00:00",
+            "gelesen_am": null
+        },
+        {
+            "meldung_id": 20,
+            "titel": "CVE-2026-2222: VMware ESXi remote code execution",
+            "kategorie": "cve",
+            "relevanz": "kritisch",
+            "cvss": 9.8,
+            "bereich": "Virtualisierung",
+            "system_name": "VMware ESXi",
+            "quelle": "NVD \u2013 Proxmox",
+            "verweis": "https://nvd/2222",
+            "veroeffentlicht_am": "2026-09-04 00:00:00",
+            "gelesen_am": null
+        },
+        {
+            "meldung_id": 18,
+            "titel": "CVE-2026-2222: VMware ESXi remote code execution",
+            "kategorie": "cve",
+            "relevanz": "kritisch",
+            "cvss": 9.8,
+            "bereich": "Virtualisierung",
+            "system_name": "VMware ESXi",
+            "quelle": "NVD \u2013 Veeam",
+            "verweis": "https://nvd/2222",
+            "veroeffentlicht_am": "2026-09-04 00:00:00",
+            "gelesen_am": null
+        },
+        {
+            "meldung_id": 17,
+            "titel": "CVE-2026-2222: VMware ESXi remote code execution",
+            "kategorie": "cve",
+            "relevanz": "kritisch",
+            "cvss": 9.8,
+            "bereich": "Virtualisierung",
+            "system_name": "VMware ESXi",
+            "quelle": "NVD \u2013 VMware ESXi",
+            "verweis": "https://nvd/2222",
+            "veroeffentlicht_am": "2026-09-04 00:00:00",
+            "gelesen_am": null
+        },
+        {
+            "meldung_id": 15,
+            "titel": "Veeam Backup: actively exploited zero-day",
+            "kategorie": "sicherheitswarnung",
+            "relevanz": "kritisch",
+            "cvss": null,
+            "bereich": "Backup",
+            "system_name": "Backup-Server",
+            "quelle": "Microsoft Security Update Guide",
+            "verweis": "https://wid/3",
+            "veroeffentlicht_am": "2026-09-03 09:00:00",
+            "gelesen_am": null
+        },
+        {
+            "meldung_id": 3,
+            "titel": "Veeam Backup: actively exploited zero-day",
+            "kategorie": "sicherheitswarnung",
+            "relevanz": "kritisch",
+            "cvss": null,
+            "bereich": "Backup",
+            "system_name": "Backup-Server",
+            "quelle": "BSI CERT-Bund Sicherheitshinweise",
+            "verweis": "https://wid/3",
+            "veroeffentlicht_am": "2026-09-03 09:00:00",
+            "gelesen_am": null
+        },
+        {
+            "meldung_id": 9,
+            "titel": "Veeam Backup: actively exploited zero-day",
+            "kategorie": "sicherheitswarnung",
+            "relevanz": "kritisch",
+            "cvss": null,
+            "bereich": "Backup",
+            "system_name": "Backup-Server",
+            "quelle": "Debian Security Advisories",
+            "verweis": "https://wid/3",
+            "veroeffentlicht_am": "2026-09-03 09:00:00",
+            "gelesen_am": null
+        }
+    ],
+    "trend": [
+        {
+            "beschriftung": "25.08.",
+            "schluessel": "2026-08-25",
+            "anzahl": 0
+        },
+        {
+            "beschriftung": "26.08.",
+            "schluessel": "2026-08-26",
+            "anzahl": 0
+        },
+        {
+            "beschriftung": "27.08.",
+            "schluessel": "2026-08-27",
+            "anzahl": 0
+        },
+        {
+            "beschriftung": "28.08.",
+            "schluessel": "2026-08-28",
+            "anzahl": 0
+        },
+        {
+            "beschriftung": "29.08.",
+            "schluessel": "2026-08-29",
+            "anzahl": 0
+        },
+        {
+            "beschriftung": "30.08.",
+            "schluessel": "2026-08-30",
+            "anzahl": 0
+        },
+        {
+            "beschriftung": "31.08.",
+            "schluessel": "2026-08-31",
+            "anzahl": 0
+        },
+        {
+            "beschriftung": "01.09.",
+            "schluessel": "2026-09-01",
+            "anzahl": 5
+        },
+        {
+            "beschriftung": "02.09.",
+            "schluessel": "2026-09-02",
+            "anzahl": 5
+        },
+        {
+            "beschriftung": "03.09.",
+            "schluessel": "2026-09-03",
+            "anzahl": 5
+        },
+        {
+            "beschriftung": "04.09.",
+            "schluessel": "2026-09-04",
+            "anzahl": 5
+        },
+        {
+            "beschriftung": "05.09.",
+            "schluessel": "2026-09-05",
+            "anzahl": 0
+        },
+        {
+            "beschriftung": "06.09.",
+            "schluessel": "2026-09-06",
+            "anzahl": 0
+        },
+        {
+            "beschriftung": "07.09.",
+            "schluessel": "2026-09-07",
+            "anzahl": 5
+        }
+    ],
+    "nach_bereich": [
+        {
+            "bereich": "Linux",
+            "anzahl": 3,
+            "dringend": 0
+        },
+        {
+            "bereich": "Nextcloud",
+            "anzahl": 4,
+            "dringend": 4
+        },
+        {
+            "bereich": "Virtualisierung",
+            "anzahl": 12,
+            "dringend": 5
+        },
+        {
+            "bereich": "Backup",
+            "anzahl": 5,
+            "dringend": 5
+        },
+        {
+            "bereich": "Microsoft",
+            "anzahl": 0,
+            "dringend": 0
+        },
+        {
+            "bereich": "Kommunikation",
+            "anzahl": 0,
+            "dringend": 0
+        },
+        {
+            "bereich": "Sicherheit",
+            "anzahl": 0,
+            "dringend": 0
+        }
+    ],
+    "nach_kategorie": [
+        {
+            "kategorie": "cve",
+            "anzahl": 9
+        },
+        {
+            "kategorie": "update",
+            "anzahl": 5
+        },
+        {
+            "kategorie": "sicherheitswarnung",
+            "anzahl": 5
+        },
+        {
+            "kategorie": "eol",
+            "anzahl": 5
+        }
+    ],
+    "risiko": [
+        {
+            "system_name": "Nextcloud",
+            "versionsstatus": "kritisch",
+            "wert": 40
+        },
+        {
+            "system_name": "Windows Server",
+            "versionsstatus": "unbekannt",
+            "wert": 32
+        },
+        {
+            "system_name": "PHP",
+            "versionsstatus": "update_verfuegbar",
+            "wert": 20
+        },
+        {
+            "system_name": "Backup-Server",
+            "versionsstatus": "unbekannt",
+            "wert": 10
+        },
+        {
+            "system_name": "Proxmox VE",
+            "versionsstatus": "unbekannt",
+            "wert": 10
+        },
+        {
+            "system_name": "VMware ESXi",
+            "versionsstatus": "unbekannt",
+            "wert": 10
+        },
+        {
+            "system_name": "Veeam Backup & Replication",
+            "versionsstatus": "unbekannt",
+            "wert": 10
+        },
+        {
+            "system_name": "Microsoft 365",
+            "versionsstatus": "unbekannt",
+            "wert": 10
+        },
+        {
+            "system_name": "3CX Phone System",
+            "versionsstatus": "unbekannt",
+            "wert": 10
+        },
+        {
+            "system_name": "Ubuntu Server",
+            "versionsstatus": "unbekannt",
+            "wert": 10
+        },
+        {
+            "system_name": "MariaDB",
+            "versionsstatus": "aktuell",
+            "wert": 0
+        }
+    ],
+    "schwellwertmeldungen": [
+        {
+            "alarm_id": 26,
+            "typ": "schwellwert",
+            "stufe": "kritisch",
+            "meldung": "Windows Server \u2013 RAM-Auslastung: 97.105 % ueberschreitet den Grenzwert 95.000 %.",
+            "ausgeloest_am": "2026-09-06 15:50:03",
+            "system_name": "Windows Server",
+            "kategorie": "Schwellwert"
+        },
+        {
+            "alarm_id": 25,
+            "typ": "schwellwert",
+            "stufe": "warnung",
+            "meldung": "Windows Server \u2013 RAM-Auslastung: 94.719 % ueberschreitet den Grenzwert 85.000 %.",
+            "ausgeloest_am": "2026-09-06 15:45:29",
+            "system_name": "Windows Server",
+            "kategorie": "Schwellwert"
+        }
+    ],
+    "schwellwerte_je_system": [
+        {
+            "system_name": "Windows Server",
+            "anzahl": 2
+        }
+    ],
+    "auftraege": [
+        {
+            "id": "schwellwertpruefung",
+            "naechste_ausfuehrung": "2026-09-07T13:05:01.778514+02:00"
+        },
+        {
+            "id": "simulation",
+            "naechste_ausfuehrung": "2026-09-07T13:05:01.778594+02:00"
+        },
+        {
+            "id": "meldungserfassung",
+            "naechste_ausfuehrung": "2026-09-07T13:15:01.776108+02:00"
+        },
+        {
+            "id": "versionspruefung",
+            "naechste_ausfuehrung": "2026-09-07T14:00:01.775861+02:00"
+        },
+        {
+            "id": "protokoll_aufraeumen",
+            "naechste_ausfuehrung": "2026-09-08T03:30:00+02:00"
+        },
+        {
+            "id": "versionspruefung_taeglich",
+            "naechste_ausfuehrung": "2026-09-08T06:00:00+02:00"
+        }
+    ],
+    "benutzer": {
+        "benutzer_id": 1,
+        "benutzername": "admin",
+        "rolle": "admin"
+    }
+}

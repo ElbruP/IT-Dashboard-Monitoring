@@ -1,0 +1,53 @@
+{
+    "bereiche": [
+        {
+            "bereich_id": 1,
+            "name": "Linux",
+            "beschreibung": "Debian, Ubuntu und weitere Linux-Server",
+            "offen": 3,
+            "dringend": 0
+        },
+        {
+            "bereich_id": 2,
+            "name": "Nextcloud",
+            "beschreibung": "Nextcloud Server und Zusatzanwendungen",
+            "offen": 4,
+            "dringend": 4
+        },
+        {
+            "bereich_id": 3,
+            "name": "Virtualisierung",
+            "beschreibung": "Proxmox VE und VMware",
+            "offen": 12,
+            "dringend": 5
+        },
+        {
+            "bereich_id": 4,
+            "name": "Backup",
+            "beschreibung": "Veeam Backup & Replication",
+            "offen": 5,
+            "dringend": 5
+        },
+        {
+            "bereich_id": 5,
+            "name": "Microsoft",
+            "beschreibung": "Microsoft 365, Windows und Windows Server",
+            "offen": 0,
+            "dringend": 0
+        },
+        {
+            "bereich_id": 6,
+            "name": "Kommunikation",
+            "beschreibung": "3CX und weitere Kommunikationsloesungen",
+            "offen": 0,
+            "dringend": 0
+        },
+        {
+            "bereich_id": 7,
+            "name": "Sicherheit",
+            "beschreibung": "uebergreifende Sicherheitsmeldungen",
+            "offen": 0,
+            "dringend": 0
+        }
+    ]
+}

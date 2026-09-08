@@ -1,0 +1,41 @@
+name: Vorfuehrung veroeffentlichen
+
+# Stellt den Ordner demo/ ueber GitHub Pages bereit. Die Vorfuehrung
+# arbeitet mit aufgezeichneten Daten und benoetigt weder Server noch
+# Datenbank. Damit ist die Oberflaeche jederzeit ohne Aufwand erreichbar,
+# etwa fuer die Praesentation.
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  veroeffentlichen:
+    environment:
+      name: github-pages
+      url: ${{ steps.bereitstellung.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Seiten vorbereiten
+        uses: actions/configure-pages@v5
+
+      - name: Ordner hochladen
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: demo
+
+      - name: Bereitstellen
+        id: bereitstellung
+        uses: actions/deploy-pages@v4

@@ -1,0 +1,74 @@
+{
+    "regeln": [
+        {
+            "metrik_id": 4,
+            "bezeichnung": "Backup-Alter",
+            "einheit": "h",
+            "beschreibung": "Stunden seit dem letzten erfolgreichen Backup",
+            "aktiv": 1,
+            "system_name": "Backup-Server",
+            "richtung": "obergrenze",
+            "grenze_warnung": 26.0,
+            "grenze_kritisch": 48.0,
+            "wert": 7.183,
+            "status": "ok",
+            "gemessen_am": "2026-09-06 15:49:38"
+        },
+        {
+            "metrik_id": 5,
+            "bezeichnung": "Serverraum-Temp.",
+            "einheit": "\u00b0C",
+            "beschreibung": "Temperatur im Serverschrank",
+            "aktiv": 1,
+            "system_name": "Backup-Server",
+            "richtung": "obergrenze",
+            "grenze_warnung": 27.0,
+            "grenze_kritisch": 32.0,
+            "wert": 24.359,
+            "status": "ok",
+            "gemessen_am": "2026-09-06 15:49:38"
+        },
+        {
+            "metrik_id": 2,
+            "bezeichnung": "CPU-Auslastung",
+            "einheit": "%",
+            "beschreibung": "Durchschnitt der letzten 5 Minuten",
+            "aktiv": 1,
+            "system_name": "Nextcloud",
+            "richtung": "obergrenze",
+            "grenze_warnung": 80.0,
+            "grenze_kritisch": 95.0,
+            "wert": 34.55,
+            "status": "ok",
+            "gemessen_am": "2026-09-06 15:49:38"
+        },
+        {
+            "metrik_id": 1,
+            "bezeichnung": "Speicherplatz frei",
+            "einheit": "%",
+            "beschreibung": "Freier Speicher auf dem Datenlaufwerk",
+            "aktiv": 1,
+            "system_name": "Nextcloud",
+            "richtung": "untergrenze",
+            "grenze_warnung": 15.0,
+            "grenze_kritisch": 5.0,
+            "wert": 35.523,
+            "status": "ok",
+            "gemessen_am": "2026-09-06 15:49:38"
+        },
+        {
+            "metrik_id": 3,
+            "bezeichnung": "RAM-Auslastung",
+            "einheit": "%",
+            "beschreibung": "Belegter Arbeitsspeicher",
+            "aktiv": 1,
+            "system_name": "Windows Server",
+            "richtung": "obergrenze",
+            "grenze_warnung": 85.0,
+            "grenze_kritisch": 95.0,
+            "wert": 97.105,
+            "status": "kritisch",
+            "gemessen_am": "2026-09-06 15:49:38"
+        }
+    ]
+}

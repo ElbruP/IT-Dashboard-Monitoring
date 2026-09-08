@@ -1,0 +1,77 @@
+========================================================================
+  IT-MONITORING-DASHBOARD  -  ERSTE SCHRITTE
+========================================================================
+
+VORAUSSETZUNGEN
+---------------
+1) Python 3.11 oder neuer
+   https://www.python.org/downloads/
+   WICHTIG: bei der Installation "Add Python to PATH" ankreuzen.
+
+2) MariaDB
+   https://mariadb.org/download/
+   Bei der Installation:
+     - Kennwort fuer den Benutzer "root" setzen und notieren
+     - "Install as service" ankreuzen
+
+Nach beiden Installationen PowerShell schliessen und neu oeffnen.
+
+
+START
+-----
+PowerShell im Ordner dieser Datei oeffnen und eingeben:
+
+    Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+    .\start.ps1
+
+Der erste Befehl erlaubt das Ausfuehren des Skripts nur in diesem
+Fenster; die Sicherheitseinstellungen von Windows bleiben unveraendert.
+
+Das Skript richtet alles ein und startet die Anwendung. Beim ersten
+Aufruf fragt es einmal nach dem Kennwort von "root".
+
+
+ANMELDUNG
+---------
+Oberflaeche:    http://localhost:8000
+Schnittstelle:  http://localhost:8000/docs
+
+    Benutzer   Kennwort      Rolle
+    admin      Start!2026    Administrator
+    lesend     Start!2026    nur lesend
+
+Diese Kennwoerter sind bei der Uebergabe zwingend zu aendern.
+
+
+BEENDEN
+-------
+Im PowerShell-Fenster: Strg + C
+
+
+WENN ETWAS NICHT FUNKTIONIERT
+-----------------------------
+"python wurde nicht gefunden"
+    Python fehlt oder wurde ohne PATH installiert.
+
+"MariaDB wurde nicht gefunden"
+    MariaDB fehlt. Nach der Installation PowerShell neu oeffnen.
+
+"Access denied for user 'root'"
+    Falsches Kennwort. Die Datei backend\.env loeschen und
+    start.ps1 erneut ausfuehren.
+
+"Die Datenbank ist nicht erreichbar"
+    Dienst pruefen:  Get-Service | Where-Object Name -match "maria"
+    Starten:         Start-Service MariaDB
+
+Die Anmeldeseite erscheint immer wieder
+    In backend\.env ist SITZUNG_SCHLUESSEL leer.
+
+
+WAS ALS NAECHSTES
+-----------------
+Der Ordner enthaelt ausserdem:
+
+    README.md        Aufbau, Schnittstelle, Entwurfsentscheidungen
+    datenbank\       Schema, ER-Diagramm, Datenbankbenutzer
+    deployment\      systemd-Einheit fuer den spaeteren Server

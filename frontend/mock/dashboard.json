@@ -1,0 +1,104 @@
+{
+  "_hinweis": "Struktur entspricht den Views v_systemstatus und v_metrikstatus.",
+
+  "systeme": [
+    {
+      "system_id": 1,
+      "name": "Nextcloud",
+      "kategorie": "Dienst",
+      "installierte_version": "29.0.4",
+      "verfuegbare_version": "30.0.1",
+      "ist_sicherheitsupdate": true,
+      "versionsstatus": "kritisch",
+      "geprueft_am": "2026-08-14 06:00:00"
+    },
+    {
+      "system_id": 2,
+      "name": "MariaDB",
+      "kategorie": "Datenbank",
+      "installierte_version": "10.11.6",
+      "verfuegbare_version": "10.11.6",
+      "ist_sicherheitsupdate": false,
+      "versionsstatus": "aktuell",
+      "geprueft_am": "2026-08-14 06:00:00"
+    },
+    {
+      "system_id": 3,
+      "name": "Windows Server",
+      "kategorie": "Server",
+      "installierte_version": "2019",
+      "verfuegbare_version": null,
+      "ist_sicherheitsupdate": false,
+      "versionsstatus": "unbekannt",
+      "geprueft_am": null
+    },
+    {
+      "system_id": 4,
+      "name": "PHP",
+      "kategorie": "Anwendung",
+      "installierte_version": "8.2.12",
+      "verfuegbare_version": "8.3.9",
+      "ist_sicherheitsupdate": false,
+      "versionsstatus": "update_verfuegbar",
+      "geprueft_am": "2026-08-14 06:00:00"
+    },
+    {
+      "system_id": 5,
+      "name": "Backup-Server",
+      "kategorie": "Server",
+      "installierte_version": "12.1",
+      "verfuegbare_version": "12.1",
+      "ist_sicherheitsupdate": false,
+      "versionsstatus": "aktuell",
+      "geprueft_am": "2026-08-14 06:00:00"
+    }
+  ],
+
+  "metriken": [
+    {
+      "metrik_id": 1,
+      "system_name": "Nextcloud",
+      "metrik": "Speicherplatz frei",
+      "einheit": "%",
+      "wert": 12.3,
+      "status": "warnung",
+      "gemessen_am": "2026-08-14 08:15:00"
+    },
+    {
+      "metrik_id": 2,
+      "system_name": "Nextcloud",
+      "metrik": "CPU-Auslastung",
+      "einheit": "%",
+      "wert": 35.0,
+      "status": "ok",
+      "gemessen_am": "2026-08-14 08:15:00"
+    },
+    {
+      "metrik_id": 3,
+      "system_name": "Windows Server",
+      "metrik": "RAM-Auslastung",
+      "einheit": "%",
+      "wert": 96.4,
+      "status": "kritisch",
+      "gemessen_am": "2026-08-14 08:15:00"
+    },
+    {
+      "metrik_id": 4,
+      "system_name": "Backup-Server",
+      "metrik": "Backup-Alter",
+      "einheit": "h",
+      "wert": 8.0,
+      "status": "ok",
+      "gemessen_am": "2026-08-14 08:15:00"
+    },
+    {
+      "metrik_id": 5,
+      "system_name": "Backup-Server",
+      "metrik": "Serverraum-Temperatur",
+      "einheit": "°C",
+      "wert": 24.1,
+      "status": "ok",
+      "gemessen_am": "2026-08-14 08:15:00"
+    }
+  ]
+}

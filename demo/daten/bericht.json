@@ -1,0 +1,96 @@
+{
+    "erstellt_am": "07.09.2026 07:16",
+    "kennzahlen": {
+        "meldungen_gesamt": 25,
+        "meldungen_ungelesen": 24,
+        "meldungen_neu_24h": 25,
+        "meldungen_handlungsbedarf": 14,
+        "meldungen_kritisch": 1,
+        "meldungen_kritisch_24h": 1,
+        "quellen_erreichbar": 15,
+        "quellen_gestoert": 1,
+        "quellen_gesamt": 16,
+        "meldungen_offen": 2,
+        "meldungen_offen_24h": 2,
+        "systeme_gesamt": 11,
+        "systeme_neu": 11,
+        "letzter_lauf": "2026-09-07 07:10:31"
+    },
+    "risiko": [
+        {
+            "system_name": "Nextcloud",
+            "versionsstatus": "kritisch",
+            "wert": 40
+        },
+        {
+            "system_name": "Windows Server",
+            "versionsstatus": "unbekannt",
+            "wert": 32
+        },
+        {
+            "system_name": "PHP",
+            "versionsstatus": "update_verfuegbar",
+            "wert": 20
+        },
+        {
+            "system_name": "Backup-Server",
+            "versionsstatus": "unbekannt",
+            "wert": 10
+        },
+        {
+            "system_name": "Proxmox VE",
+            "versionsstatus": "unbekannt",
+            "wert": 10
+        },
+        {
+            "system_name": "VMware ESXi",
+            "versionsstatus": "unbekannt",
+            "wert": 10
+        },
+        {
+            "system_name": "Veeam Backup & Replication",
+            "versionsstatus": "unbekannt",
+            "wert": 10
+        },
+        {
+            "system_name": "Microsoft 365",
+            "versionsstatus": "unbekannt",
+            "wert": 10
+        },
+        {
+            "system_name": "3CX Phone System",
+            "versionsstatus": "unbekannt",
+            "wert": 10
+        },
+        {
+            "system_name": "Ubuntu Server",
+            "versionsstatus": "unbekannt",
+            "wert": 10
+        },
+        {
+            "system_name": "MariaDB",
+            "versionsstatus": "aktuell",
+            "wert": 0
+        }
+    ],
+    "offene_meldungen": [
+        {
+            "system_name": "Windows Server",
+            "stufe": "kritisch",
+            "typ": "schwellwert",
+            "meldung": "Windows Server \u2013 RAM-Auslastung: 97.105 % ueberschreitet den Grenzwert 95.000 %.",
+            "ausgeloest_am": "2026-09-06 15:50:03"
+        },
+        {
+            "system_name": "Windows Server",
+            "stufe": "warnung",
+            "typ": "schwellwert",
+            "meldung": "Windows Server \u2013 RAM-Auslastung: 94.719 % ueberschreitet den Grenzwert 85.000 %.",
+            "ausgeloest_am": "2026-09-06 15:45:29"
+        }
+    ],
+    "bearbeitung": {
+        "quittiert_30_tage": 10,
+        "durchschnitt_stunden": 24.0
+    }
+}

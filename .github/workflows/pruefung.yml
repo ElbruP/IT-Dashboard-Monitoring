@@ -1,0 +1,106 @@
+name: Pruefung
+
+# Bei jeder Aenderung wird geprueft, ob das Schema einspielbar ist, die
+# Anwendung startet und die Schnittstelle antwortet. Das Ergebnis ist im
+# Repository sichtbar und kann als Nachweis der Qualitaetssicherung in die
+# Projektdokumentation aufgenommen werden.
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  pruefung:
+    runs-on: ubuntu-latest
+
+    services:
+      mariadb:
+        image: mariadb:11
+        env:
+          MARIADB_ROOT_PASSWORD: pruefkennwort
+        ports: [ "3306:3306" ]
+        options: >-
+          --health-cmd="healthcheck.sh --connect --innodb_initialized"
+          --health-interval=10s --health-timeout=5s --health-retries=10
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Python bereitstellen
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Abhaengigkeiten installieren
+        run: pip install -r backend/requirements.txt
+
+      - name: Datenbankschema einspielen
+        run: |
+          mysql -h 127.0.0.1 -u root -ppruefkennwort \
+                --default-character-set=utf8mb4 < datenbank/01_schema_monitoring.sql
+          mysql -h 127.0.0.1 -u root -ppruefkennwort \
+                --default-character-set=utf8mb4 < datenbank/04_erweiterung_benachrichtigung.sql
+          mysql -h 127.0.0.1 -u root -ppruefkennwort \
+                --default-character-set=utf8mb4 < datenbank/05_erweiterung_quellen_meldungen.sql
+
+      - name: Sichten liefern die erwarteten Zustaende
+        run: |
+          mysql -h 127.0.0.1 -u root -ppruefkennwort monitoring \
+                -e "SELECT name, versionsstatus FROM v_systemstatus;"
+          mysql -h 127.0.0.1 -u root -ppruefkennwort monitoring \
+                -e "SELECT system_name, metrik, status FROM v_metrikstatus;"
+
+      - name: Zeichenkodierung pruefen
+        run: |
+          ergebnis=$(mysql -h 127.0.0.1 -u root -ppruefkennwort monitoring -N \
+                     -e "SELECT HEX(einheit) FROM metriken WHERE metrik_id = 5;")
+          if [ "$ergebnis" != "C2B043" ]; then
+            echo "Zeichen wurden doppelt kodiert gespeichert: $ergebnis"; exit 1
+          fi
+          echo "Kodierung korrekt"
+
+      - name: JavaScript-Syntax pruefen
+        run: |
+          for datei in frontend/js/*.js; do node --check "$datei"; done
+
+      - name: Anwendung starten und Schnittstelle pruefen
+        env:
+          DB_HOST: 127.0.0.1
+          DB_USER: root
+          DB_PASSWORT: pruefkennwort
+          SITZUNG_SCHLUESSEL: schluessel-nur-fuer-die-pruefung
+          SIMULATION_AKTIV: "true"
+        working-directory: backend
+        run: |
+          python -m uvicorn app.api:app --host 127.0.0.1 --port 8000 &
+          for i in $(seq 1 20); do
+            sleep 2
+            code=$(curl -s -o /dev/null -w "%{http_code}" localhost:8000/api/status || true)
+            [ "$code" = "200" ] && break
+          done
+
+          echo "Zugriffsschutz: ohne Anmeldung muss 401 kommen"
+          test "$(curl -s -o /dev/null -w '%{http_code}' localhost:8000/api/uebersicht)" = "401"
+
+          echo "Anmeldung"
+          curl -s -c kekse.txt -X POST localhost:8000/api/anmeldung \
+               -H 'Content-Type: application/json' \
+               -d '{"benutzername":"admin","kennwort":"Start!2026"}' | grep -q admin
+
+          echo "Rollenpruefung: leser darf nicht quittieren"
+          curl -s -c leser.txt -X POST localhost:8000/api/anmeldung \
+               -H 'Content-Type: application/json' \
+               -d '{"benutzername":"lesend","kennwort":"Start!2026"}' > /dev/null
+          test "$(curl -s -b leser.txt -o /dev/null -w '%{http_code}' \
+                  -X POST localhost:8000/api/alarme/1/quittieren)" = "403"
+
+          echo "Fachliche Endpunkte"
+          for pfad in uebersicht produkte regeln meldungen bericht systeme \
+                      bereiche quellen quellen/protokoll; do
+            code=$(curl -s -b kekse.txt -o /dev/null -w "%{http_code}" \
+                   "localhost:8000/api/$pfad")
+            echo "  /api/$pfad -> $code"
+            test "$code" = "200"
+          done

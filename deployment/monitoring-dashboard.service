@@ -1,0 +1,29 @@
+[Unit]
+Description=IT-Monitoring-Dashboard
+Documentation=file:/opt/monitoring-dashboard/README.md
+After=network-online.target mariadb.service
+Wants=network-online.target
+Requires=mariadb.service
+
+[Service]
+Type=simple
+User=monitoring
+Group=monitoring
+WorkingDirectory=/opt/monitoring-dashboard/backend
+Environment="PATH=/opt/monitoring-dashboard/venv/bin"
+ExecStart=/opt/monitoring-dashboard/venv/bin/uvicorn app.api:app --host 127.0.0.1 --port 8000
+Restart=always
+RestartSec=10
+
+# Absicherung des Dienstes
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/opt/monitoring-dashboard
+ProtectKernelTunables=true
+ProtectControlGroups=true
+RestrictAddressFamilies=AF_INET AF_INET6 AF_UNIX
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,114 @@
+{
+    "systeme": [
+        {
+            "system_id": 10,
+            "name": "3CX Phone System",
+            "kategorie": "Dienst",
+            "installierte_version": "20.0",
+            "verfuegbare_version": null,
+            "ist_sicherheitsupdate": null,
+            "geprueft_am": null,
+            "versionsstatus": "unbekannt"
+        },
+        {
+            "system_id": 5,
+            "name": "Backup-Server",
+            "kategorie": "Server",
+            "installierte_version": "12.1",
+            "verfuegbare_version": null,
+            "ist_sicherheitsupdate": null,
+            "geprueft_am": null,
+            "versionsstatus": "unbekannt"
+        },
+        {
+            "system_id": 2,
+            "name": "MariaDB",
+            "kategorie": "Datenbank",
+            "installierte_version": "10.11.6",
+            "verfuegbare_version": "10.11.6",
+            "ist_sicherheitsupdate": 0,
+            "geprueft_am": "2026-09-06 12:31:02",
+            "versionsstatus": "aktuell"
+        },
+        {
+            "system_id": 9,
+            "name": "Microsoft 365",
+            "kategorie": "Anwendung",
+            "installierte_version": "aktueller Kanal",
+            "verfuegbare_version": null,
+            "ist_sicherheitsupdate": null,
+            "geprueft_am": null,
+            "versionsstatus": "unbekannt"
+        },
+        {
+            "system_id": 1,
+            "name": "Nextcloud",
+            "kategorie": "Dienst",
+            "installierte_version": "29.0.4",
+            "verfuegbare_version": "30.0.1",
+            "ist_sicherheitsupdate": 1,
+            "geprueft_am": "2026-09-06 12:31:02",
+            "versionsstatus": "kritisch"
+        },
+        {
+            "system_id": 4,
+            "name": "PHP",
+            "kategorie": "Anwendung",
+            "installierte_version": "8.2.12",
+            "verfuegbare_version": "8.3.9",
+            "ist_sicherheitsupdate": 0,
+            "geprueft_am": "2026-09-06 12:31:02",
+            "versionsstatus": "update_verfuegbar"
+        },
+        {
+            "system_id": 6,
+            "name": "Proxmox VE",
+            "kategorie": "Server",
+            "installierte_version": "8.2.4",
+            "verfuegbare_version": null,
+            "ist_sicherheitsupdate": null,
+            "geprueft_am": null,
+            "versionsstatus": "unbekannt"
+        },
+        {
+            "system_id": 11,
+            "name": "Ubuntu Server",
+            "kategorie": "Server",
+            "installierte_version": "22.04",
+            "verfuegbare_version": null,
+            "ist_sicherheitsupdate": null,
+            "geprueft_am": null,
+            "versionsstatus": "unbekannt"
+        },
+        {
+            "system_id": 8,
+            "name": "Veeam Backup & Replication",
+            "kategorie": "Anwendung",
+            "installierte_version": "12.1",
+            "verfuegbare_version": null,
+            "ist_sicherheitsupdate": null,
+            "geprueft_am": null,
+            "versionsstatus": "unbekannt"
+        },
+        {
+            "system_id": 7,
+            "name": "VMware ESXi",
+            "kategorie": "Server",
+            "installierte_version": "8.0 U2",
+            "verfuegbare_version": null,
+            "ist_sicherheitsupdate": null,
+            "geprueft_am": null,
+            "versionsstatus": "unbekannt"
+        },
+        {
+            "system_id": 3,
+            "name": "Windows Server",
+            "kategorie": "Server",
+            "installierte_version": "2019",
+            "verfuegbare_version": null,
+            "ist_sicherheitsupdate": null,
+            "geprueft_am": null,
+            "versionsstatus": "unbekannt"
+        }
+    ]
+}

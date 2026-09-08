@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anmeldung | IT-Monitoring</title>
+    <link rel="stylesheet" href="css/style.css?v=6">
+</head>
+<body class="anmeldeseite">
+
+<main class="anmeldung">
+    <h1 class="anmeldung__marke">IT-Monitoring</h1>
+    <p class="anmeldung__ort">Kreisverwaltung &middot; Rechenzentrum</p>
+
+    <form id="anmeldeformular" class="anmeldung__formular" autocomplete="on">
+        <label class="feld">
+            <span class="feld__beschriftung">Benutzername</span>
+            <input class="feld__eingabe" type="text" id="benutzername"
+                   name="username" autocomplete="username" required autofocus>
+        </label>
+
+        <label class="feld">
+            <span class="feld__beschriftung">Kennwort</span>
+            <input class="feld__eingabe" type="password" id="kennwort"
+                   name="password" autocomplete="current-password" required>
+        </label>
+
+        <p id="fehler" class="anmeldung__fehler" role="alert" hidden></p>
+
+        <button class="schalter" type="submit" id="absenden">Anmelden</button>
+    </form>
+</main>
+
+<script>
+const formular = document.getElementById('anmeldeformular');
+const fehler   = document.getElementById('fehler');
+const schalter = document.getElementById('absenden');
+
+formular.addEventListener('submit', async ereignis => {
+    ereignis.preventDefault();
+    fehler.hidden = true;
+    schalter.disabled = true;
+    schalter.textContent = 'Wird geprüft …';
+
+    try {
+        const antwort = await fetch('api/anmeldung', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                benutzername: document.getElementById('benutzername').value,
+                kennwort:     document.getElementById('kennwort').value
+            })
+        });
+
+        if (antwort.ok) {
+            window.location.href = 'index.html';
+            return;
+        }
+
+        const daten = await antwort.json().catch(() => ({}));
+        fehler.textContent = daten.detail || 'Anmeldung nicht möglich.';
+        fehler.hidden = false;
+    } catch (ausnahme) {
+        // Unterscheidet einen Serverfehler von falschen Anmeldedaten.
+        fehler.textContent = 'Der Server ist nicht erreichbar.';
+        fehler.hidden = false;
+    } finally {
+        schalter.disabled = false;
+        schalter.textContent = 'Anmelden';
+        document.getElementById('kennwort').value = '';
+    }
+});
+</script>
+</body>
+</html>

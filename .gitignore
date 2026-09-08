@@ -1,0 +1,19 @@
+# Zugangsdaten und lokale Konfiguration
+backend/.env
+*.env
+!backend/.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+venv/
+.venv/
+
+# Betriebssystem und Editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Laufzeitdaten
+*.log
