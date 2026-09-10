@@ -46,7 +46,13 @@ monitoring-dashboard/
 │       ├── bereiche.js            Reiter Produkte, Meldungen, Regeln, Berichte
 │       └── app.js                 Darstellung, Reiterwechsel, Aktualisierung
 ├── deployment/
-│   └── monitoring-dashboard.service
+│   ├── INSTALLATION_VMWARE.md     Bereitstellung Schritt fuer Schritt (angepasst)
+│   ├── installieren.sh            fasst die wiederkehrenden Schritte zusammen
+│   ├── nginx-monitoring-ip.conf   Reverse Proxy fuer Zugriff ueber IP-Adresse
+│   ├── PROXMOX_INSTALLATION.md    Bereitstellung auf einer VM, Schritt fuer Schritt
+│   ├── INSTALLATION.md            Kurzfassung fuer einen beliebigen Server
+│   ├── monitoring-dashboard.service
+│   └── nginx-monitoring.conf      Reverse Proxy mit TLS
 ├── demo/                          statische Vorfuehrung fuer GitHub Pages
 └── .github/workflows/
     ├── pruefung.yml               automatische Pruefung bei jeder Aenderung
